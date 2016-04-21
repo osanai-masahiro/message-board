@@ -11,14 +11,28 @@
     <% end %>
   </div>
 </div>
-
-<%= form_for(@message) do |f| %>
-  名前:
-  <br>
-  <%= f.text_field :name,class: "form-control",placeholder: "名前を入力してください。" ,style: "width:350px;" %>
-  <br>
-  内容:
-  <%= f.text_area :body ,class: "form-control", placeholder: "投稿内容を書き込んで下さい。",rows: "4" %>
-  <br>
-  <%= f.submit class: "btn btn-large btn-success" %>
+<br>
+<%= form_for(@message, html: {class: "form-horizontal"}) do |f| %>
+  <div class="form-group">
+    
+    <div class="row">
+    <label for = "message_name" class= "control-rabel col-md-1">名前:</label>
+    <div class = "col-md-4">
+        <%= f.text_field :name,class: "form-control",placeholder: "名前を入力してください。"  %>
+    </div>
+    </div>
+    
+    <br>
+    <br>
+    
+    <div class ="row">
+    <label for ="message_body" class ="control-rabel col-md-1">投稿:</label>
+        <div class = "col-md-4">
+        <%= f.text_area :body ,class: "form-control", placeholder: "投稿内容を書き込んで下さい。",rows: "4" %>
+        </div>
+    </div>
+    
+  </div>
+    <%= f.submit class: "btn btn-large btn-success" ,style: "margin-left:240px;"%>
 <% end %>
+
